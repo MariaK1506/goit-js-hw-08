@@ -6,7 +6,6 @@ const refs = {
   form: document.querySelector('.feedback-form'),
   input: document.querySelector('input'),
   textarea: document.querySelector('textarea'),
-  submitBtn: document.querySelector('button'),
 };
 
 refs.form.addEventListener('submit', onFormSubmit);

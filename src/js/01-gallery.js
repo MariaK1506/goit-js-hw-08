@@ -1,4 +1,5 @@
 // Add imports above this line
+import galleryTpl from '../tamplates/gallery.hbs';
 import { galleryItems } from './gallery-items';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -10,16 +11,19 @@ const refs = {
 };
 
 function createGalleryMarkup(items) {
-  return items
-    .map(({ preview, original, description }) => {
-      return `
-  <li><a class="gallery__item" href="${original}">
-  <img class="gallery__image" src="${preview}" alt="${description}" />
-</a></li>
- `;
-    })
-    .join('');
+  return items.map(galleryTpl).join('');
 }
+// function createGalleryMarkup(items) {
+//   return items
+//     .map(({ preview, original, description }) => {
+//       return `
+//   <li><a class="gallery__item" href="${original}">
+//   <img class="gallery__image" src="${preview}" alt="${description}" />
+// </a></li>
+//  `;
+//     })
+//     .join('');
+// }
 
 refs.galleryList.innerHTML = createGalleryMarkup(galleryItems);
 
